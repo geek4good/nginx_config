@@ -1,0 +1,21 @@
+server {
+	listen		80;
+	server_name	geek4good.com;
+	return		301 https://$server_name$request_uri;
+}
+
+server {
+	listen			443 ssl;
+	server_name		geek4good.com;
+
+	ssl_certificate		/etc/ssl/certs/ssl-bundle.crt;
+	ssl_certificate_key	/etc/ssl/private/geek4good.key;
+	ssl_ciphers		RC4:HIGH:!aNULL:!MD5;
+
+	root			/home/geek4good;
+	index			index.html;
+
+	if ($http_host != $server_name) {
+		rewrite ^(.*) https://$server_name$request_uri permanent;
+	}
+}
