@@ -8,7 +8,7 @@ server {
 	listen			443 ssl;
 	server_name		geek4good.com;
 
-	ssl_certificate		/etc/ssl/certs/ssl-bundle.crt;
+	ssl_certificate		/etc/ssl/certs/geek4good.crt;
 	ssl_certificate_key	/etc/ssl/private/geek4good.key;
 	ssl_ciphers		RC4:HIGH:!aNULL:!MD5;
 
